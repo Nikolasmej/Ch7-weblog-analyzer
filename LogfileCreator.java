@@ -12,7 +12,8 @@ public class LogfileCreator
     private Random rand;
 
     /**
-     * Create log files.
+     * Create log filer.
+     * 
      */
     public LogfileCreator()
     {

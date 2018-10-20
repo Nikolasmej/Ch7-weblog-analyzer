@@ -1,6 +1,7 @@
 /**
  * Read web server data and analyse hourly access patterns.
- * 
+ * @Nicolas M.
+ * @10/20/18.
  * @author David J. Barnes and Michael Kölling.
  * @version    2016.02.29
  */
@@ -13,14 +14,19 @@ public class LogAnalyzer
 
     /**
      * Create an object to analyze hourly web accesses.
+     * Exercise 7.12
+     * 
+     * parameter to accept log file name as input.
+     * @String fileName
+     *  
      */
-    public LogAnalyzer()
+    public LogAnalyzer(String fileName)
     { 
         // Create the array object to hold the hourly
         // access counts.
         hourCounts = new int[24];
         // Create the reader to obtain the data.
-        reader = new LogfileReader();
+        reader = new LogfileReader(fileName);
     }
 
     /**
@@ -55,4 +61,42 @@ public class LogAnalyzer
     {
         reader.printData();
     }
-}
+
+     /**
+     * Exrecise 7.14.
+     * Method to Check the number of accesses
+     * online and book references.
+     */ 
+     public int numberOfAccesses()
+     {
+     int total = 0;
+     for (int hour = 0; hour < hourCounts.length; hour++){
+         total += hourCounts [hour];
+        }
+     return total;
+     }
+    
+    /**
+     * Exrecise 7.15.
+     * Method busiestHour returns busiest hour.
+     * online and book references.
+     * comparing values of hoursCount to hour mx
+     */ 
+     public int busiestHour()
+     {
+     //maxHour to hold value of max
+     int maxHour = 0;
+     for (int hour = 1; hour < hourCounts.length; hour++)
+     {
+     if(hourCounts [hour] > hourCounts [maxHour])
+     {
+         maxHour = hour;
+        }
+    }
+    return maxHour;
+   }
+         
+         
+
+     
+ }
