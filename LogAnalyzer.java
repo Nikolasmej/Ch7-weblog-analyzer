@@ -60,6 +60,7 @@ public class LogAnalyzer
             dayCounts[day]++;
         }
     }
+    
     /**
      * Analyze the daily access data from the log file. EX :7.19
      */
@@ -170,7 +171,47 @@ public class LogAnalyzer
     }
     return maxHour;
     }
-         
+    
+    /**
+     * Exercise 7.19.
+     * Method busiestDay returns busiest day.
+     * online and book references.
+     * comparing values of hoursCount to hour mx
+     */ 
+     public int busiestDay()
+     {
+     //maxHour to hold value of max
+     int maxDay = 0;
+     for (int day = 1; day < dayCounts.length; day++)
+     {
+     if(dayCounts [day] > dayCounts [maxDay])
+     {
+         maxDay = day;
+        }
+    }
+    return maxDay;
+    }
+    
+    /**
+     * Exercise 7.19.
+     * Method busiestMonth returns busiest month.
+     * online and book references.
+     * comparing values of hoursCount to hour mx
+     */ 
+     public int busiestMonth()
+     {
+     //maxHour to hold value of max
+     int maxMonth = 0;
+     for (int month = 1; month < monthCounts.length; month++)
+     {
+     if(monthCounts [month] > monthCounts [maxMonth])
+     {
+         maxMonth = month;
+        }
+    }
+    return maxMonth;
+    }
+    
     /**
      *Exercise 7.16.
      * method quietestHour returns least busy hour. 
@@ -211,9 +252,41 @@ public class LogAnalyzer
         return busiestOne;
      }
     
+    /**
+     *Exercise 7.19.
+     * method quietesDay returns least busy day. 
+     * arry hourCounts, for loop.
+     * online and book references.
+     */ 
+     public int quietestDay(int [] dayCounts)
+     {
+     int quietest = dayCounts[0];
+     for ( int i=0; i< dayCounts.length; i++)
+     {
+         if (dayCounts [i] > 0 &&
+         dayCounts[i] > quietest)
+         quietest = dayCounts[i];
+        }
+        return quietest;
+    }
     
-    
-    
+    /**
+     *Exercise 7.19.
+     * method quietesMonth returns least busy month. 
+     * arry hourCounts, for loop.
+     * online and book references.
+     */ 
+     public int quietestMonth(int [] monthCounts)
+     {
+     int quietest = monthCounts[0];
+     for ( int i=0; i< monthCounts.length; i++)
+     {
+         if (monthCounts [i] > 0 &&
+         monthCounts[i] > quietest)
+         quietest = monthCounts[i];
+        }
+        return quietest;
+    }
 }     
 
      
